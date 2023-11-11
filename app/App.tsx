@@ -5,7 +5,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Navbar />
-      <Text>Test app</Text>
+      <View style={styles.content}>
+        <Text style={styles.mainText}>Main</Text>
+      </View>
     </View>
   );
 }
@@ -16,4 +18,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
+  content: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10
+  },
+  mainText: {
+    fontSize: 22
+  }
 });
