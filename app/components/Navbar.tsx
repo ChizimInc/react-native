@@ -1,9 +1,12 @@
-import { Text, View, StyleSheet } from "react-native"
+import { Text, View, StyleSheet, Image } from "react-native"
 
 const Navbar = () => {
 	return(
 		<View style={styles.container}>
-			<Text style={styles.mainText}>Text</Text>
+			<View style={styles.content}>
+				<Text style={styles.mainText}>Home</Text>
+				<Image source={require("../assets/icons/menu.png")} />
+			</View>
 		</View>
 	)
 }
@@ -16,11 +19,21 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-end',
 		paddingHorizontal: 15,
 		backgroundColor: '#15366b',
-		paddingBottom: 22
+		paddingBottom: 17
+	},
+	content: {
+		display: 'flex',
+		flexDirection: 'row',
+		width: '100%',
+		justifyContent: 'space-between'
 	},
 	mainText: {
 		color: 'white',
 		fontSize: 22
+	},
+	menuImage: {
+		width: 32,
+		height: 32
 	}
 })
 
