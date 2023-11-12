@@ -1,61 +1,20 @@
-import Navbar from './components/Navbar';
-import ClickButton from './components/ClickButton';
-import { StyleSheet, Text, View } from 'react-native';
-import { useState } from 'react'
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import SecondScreen from './screens/SecondScreen';
 
-export default function App() {
-  const [color, setColor] = useState<string>('#fff')
+const Stack = createStackNavigator();
 
-  const generateRandomColor = () => {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
-  
-    const redHex = red.toString(16).padStart(2, '0');
-    const greenHex = green.toString(16).padStart(2, '0');
-    const blueHex = blue.toString(16).padStart(2, '0');
-  
-    const hexColor = `#${redHex}${greenHex}${blueHex}`;
-    return hexColor;
-  };
-
-  const changeColor = () => {
-    setColor(generateRandomColor)
-  }
-
-  const dynamicStyles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: color,
-      alignItems: 'center',
-    },
-  });
-
+const App = () => {
   return (
-    <View style={dynamicStyles.container}>
-      <Navbar />
-      <View style={styles.content}>
-        <Text style={styles.mainText}>Main</Text>
-
-        <View style={styles.buttonContainer}>
-          <ClickButton changeColor={changeColor} />
-        </View>
-      </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Second" component={SecondScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  content: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10
-  },
-  mainText: {
-    fontSize: 22
-  },
-  buttonContainer: {
-    marginTop: 50
-  }
-});
+export default App;
