@@ -19,7 +19,21 @@ export default function TabSettingsScreen() {
       name: 'Privacy and Security',
       icon: 'lock'
     },
-
+    {
+      id: 4,
+      name: 'Language',
+      icon: 'language'
+    },
+    {
+      id: 5,
+      name: 'Data and Storage',
+      icon: 'database'
+    },
+    {
+      id: 6,
+      name: 'About',
+      icon: 'code'
+    },
   ]
   return (
     <View style={styles.container}>
